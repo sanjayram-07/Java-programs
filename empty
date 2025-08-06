@@ -1,1 +1,158 @@
+import java.util.*;
+class depart{
+    Scanner sc  = new Scanner(System.in);
+    String [][] pro_price = new int[15][15];
+    int [][] trans = new int[15][];
+    String [][] cus = new int[15][15];
+    int pro_count =0;
+    int cus_count =0;
+    int total_cus =0;
+    void create_cart()
+    {
+        if(pro_count ==0 || pro_count<15){
+        
+          System.out.println("How many product want to Add in the cart: ");
+          int n = sc.nextInt();
+        for(int i =0; i <n ; i++)
+        {
+          System.out.println("Enter name of the "+(i+1)+"Product : ");
+          pro_price[i][0]=  sc.nextLine();
+          System.out.println("Enter price of the "+ pro[i]);
+          pro_price[i][1] = Integer.toString(sc.nextInt());
+        
+        }
+        count = n;
+        }
+        else
+        {
+            System.out.println("The items cart is full");
+        }
 
+    }
+
+    void customer_cart()
+    {
+        if(pro_count ==0)
+        System.out.println("The items cart is Empty");
+        else{
+        for(int i =0 ; i <pro_count;i++){
+         System.out.println((i+1) +"."+ pro_price[i][0]+"-  "+" $ "+pro_price[i][1]);
+        }
+        System.out.println("Enter the serial number of the product to add: ");
+        int num = sc.nextInt();
+        if(num <0 && num > pro_price[0].length())
+        System.out.println("Invalid option");
+        else{
+        cus[cus_count][0]  = pro_price[num-1][0];
+        cus[cus_count][1] = pro_price[num-1][1];
+        cus_count++;
+        }
+
+        }
+    }
+
+    void total_cost(){
+        for(int i =0 ; i < cus_count;i++)
+        {
+            total_cus += Integer.parseInt(cus[i][1]);
+        }
+        
+    }
+
+
+}
+class cus_management extends depart{
+        int [] cusid = new int[10];
+         Scanner sc  = new Scanner(System.in);
+         int count =0;
+         void customers()
+         {
+             if(pro_count ==0 || pro_count<10)
+             {
+         System.out.println("Enter the id of the customer: ");
+         cusid[count] = sc.nextInt();
+         count++;
+             }
+             else{
+                System.out.println("The customer limit is reached");
+             }
+         
+         }
+}
+public class demo{
+    public static void main(String [] args)
+    {
+        
+        depart obj = new depart();
+        cus_management obj1 = new cus_management();
+        int choice;
+        Scanner sc  = new Scanner(System.in);
+        do{
+            System.out.println("1.Customer");
+            System.out.println("2.Admin");
+            System.out.println("0.Exit");
+            System.out.println("Enter your Choice: ");
+            choice = sc.nextInt();
+            Switch(choice){
+            case 1:
+                obj1.customer();
+                int switch2;
+                do{
+                System.out.println("1.Add items");
+                System.out.println("2.Total cost");
+                System.out.println("3.Enter your choice");
+                System.out.println("0.Exit");
+                choice2 = sc.nextInt();
+                Switch(choice2)
+                {
+                    case 1:
+                        obj.customer_cart();
+                        break;
+                    case 2:
+                        obj.total_cost();
+                        break;
+                    case 3 :
+                        break;
+                    case 0:
+                        break;
+                    default:
+                        break;
+                }
+                }while(switch1 !=0);
+                break;
+            case 2:
+                int switch1;
+                do{
+                System.out.println("1.Add items");
+                System.out.println("2.Id's of customer");
+                System.out.println("3.Total transactions Amount");
+                System.out.println("4.Trasaction of All customers")
+                System.out.println("0.Enter your choice");
+                choice1 = sc.nextInt();
+                Switch(choice1)
+                {
+                    case 1:
+                        obj.create_cart();
+                        break;
+                    case 2:
+                        break;
+                    case 3:
+                        break;
+                    case 4:
+                        break;
+                    case 0:
+                        break;
+                    default:
+                        break;
+                }
+                }while(switch1 !=0);
+                break;
+            case 0;
+                break;
+            default:
+                break;
+
+            }
+        }while(choice!=0);
+    }
+}
