@@ -1,5 +1,6 @@
 import java.util.*;
  class general{
+    int day_count =0;
     String name;
     general(String name)
     {
@@ -13,9 +14,8 @@ import java.util.*;
      }
      void fine_calc(int month , int days)
      {
-        int count = month *30 +days;
-        System.out.println("The number of days "+count);
-        return;
+        day_count = month *30 +days;
+       
      }
    
      
@@ -55,7 +55,7 @@ class ug extends general{
             System.out.println("Invalid data");
             return;
         }
-        int day_count = month*30 + days; 
+        super.fine_calc(month,days);
         if(day_count < 25 && day_count >15)
         {
             fine = (day_count-15)*5;
@@ -113,7 +113,7 @@ class pg extends general{
             System.out.println("Invalid data");
             return;
         }
-        int day_count = month*30 + days; 
+        super.fine_calc(month,days);
         if(day_count < 40 && day_count >30)
         {
             fine = (day_count-30)*5;
@@ -167,7 +167,7 @@ class staff extends general{
             System.out.println("Invalid data");
             return;
         }
-        int day_count = month*30 + days; 
+         super.fine_calc(month,days);
         if(day_count >90)
         {
             fine = (day_count-90)*5;
