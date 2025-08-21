@@ -6,11 +6,17 @@ import java.util.*;
         this.name = name;
     }
     
-     void fine_calc(int months ,int days)
+     void fine_calc(int days)
      {
+        System.out.println("The number of days "+days);
         return;
      }
-     
+     void fine_calc(int month , int days)
+     {
+        int count = month *30 +days;
+        System.out.println("The number of days "+count);
+        return;
+     }
    
      
 }
