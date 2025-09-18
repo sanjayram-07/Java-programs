@@ -42,7 +42,7 @@ class saving implements account
             System.out.println("Max amount of withdraw is 15000");
             return;
         }
-         if(withd < balance){
+         if(withd <= balance){
         balance -= withd;
         System.out.println("Balance amount : "+ balance);
          }
@@ -86,7 +86,7 @@ class current implements account
             System.out.println("Max amount of withdraw is 50000");
             return;
         }
-         if(withd < balance){
+         if(withd <= balance){
         balance -= withd;
         System.out.println("Balance amount : "+ balance);
          }
@@ -102,6 +102,8 @@ class bank
     public static void main(String [] args)
     {
         Scanner sc = new Scanner(System.in);
+        saving obj = new saving();
+        current obj1 = new current();
         int choice;
         do{
             System.out.println("1.saving");
@@ -113,7 +115,6 @@ class bank
             switch(choice)
             {
                 case 1:
-                    saving obj = new saving();
                     int choice1;
                     do{ 
                             
@@ -139,7 +140,6 @@ class bank
                       break;
 
                 case 2:
-                    current obj1 = new current();
                     int choice2;
                     do{ 
                            
