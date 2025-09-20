@@ -73,12 +73,20 @@ class dashboard implements student,faculty
         public void display()
     {
         
-        System.out.println("Student name ");
+        System.out.println("Dashboard view for both Student and Faculty");
       
     }
     public static void main(String [] args)
     {
-        
+        dashboard db = new dashboard();
+        db.display();
+        System.out.println();
+        p_student s1 = new p_student("MIT", "sanjay", 3546);
+        s1.display();
+        System.out.println();
+        staff st1 = new staff("MIT", "Muthu");
+        st1.display();
+         
     }
 
 }
